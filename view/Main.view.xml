@@ -1,0 +1,128 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" controllerName="SAPEspania.SAPEspania.controller.Main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<VBox class="sapUiSmallMargin">
+							<!--<f:SimpleForm id="SimpleFormToolbar">-->
+							<!--	<f:toolbar>-->
+							<!--		<Toolbar id="TB1_Search">-->
+							<!--			<Title id="Title1_Search" text="{i18n>Search}" level="H4" titleStyle="H4"/>-->
+							<!--		</Toolbar>-->
+							<!--	</f:toolbar>-->
+							<!--	<l:HorizontalLayout class="sapUiContentPadding" >-->
+							<!--		<Label text="{i18n>dni}" width="100%" class="mSuperior"/>-->
+							<!--		<Input width="100%" id="input00"/>-->
+							<!--		<Button xmlns="sap.m" width="100%" text="{i18n>buscar}" id="button1" press="buscar"/>-->
+							<!--	</l:HorizontalLayout>-->
+							<!--</f:SimpleForm> -->
+							<f:Form id="Search" editable="true" ariaLabelledBy="Title1">
+								<f:toolbar>
+									<Toolbar id="TBS">
+										<Title id="Title1_Search" text="{i18n>Search}" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer ariaLabelledBy="Title2">
+										<f:formElements>
+											<f:FormElement label="{i18n>dni}">
+											
+												<!--<f:fields>-->
+												<Input id="input00" class="sapUiSmallMarginBottom" type="Text" placeholder="DNI..." />
+												<Button xmlns="sap.m" icon="sap-icon://search" id="button1" press="buscar" width="20%"/>
+												<!--</f:fields>-->
+										
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+							<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
+								<f:toolbar>
+									<Toolbar id="TB1">
+										<Title id="Title1" text="{i18n>datos}" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer ariaLabelledBy="Title2">
+										<f:formElements>
+											<f:FormElement label="{i18n>nombre}">
+												<f:fields>
+													<Input xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="name" value="{name1}" cd:w5g.dt.context="/ClienteSet" editable="false"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>apellidos}">
+												<f:fields>
+													<Input xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" value="{name2}" id="surname" cd:w5g.dt.context="/ClienteSet" editable="false"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>dni}">
+												<f:fields>
+													<Input xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="dni" value="{stcd1}" cd:w5g.dt.context="/ClienteSet" change="changeChange" editable="false"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>registrado}">
+												<CheckBox xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="registrado" text="" cd:w5g.dt.context="/ClienteSet" selected="{dear1}"/>
+												<Button xmlns="sap.m" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" width="100%" text="{i18n>descargar}" id="btnDescargar" press="descargar" cd:w5g.dt.context="/ClienteSet"/>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+							<f:Form id="Consent" editable="true" ariaLabelledBy="Title1">
+								<f:toolbar>
+									<Toolbar id="TBC">
+										<Title id="Title3" text="{i18n>consentimiento}" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:layout>
+									<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer ariaLabelledBy="Title3">
+										<!--	<f:toolbar>-->
+										<!--		<Toolbar id="TB2">-->
+										<!--			<Title id="Title3" text="{i18n>consentimiento}" level="H4" titleStyle="H4"/>-->
+										<!--			<ToolbarSpacer/>-->
+										<!--		</Toolbar>-->
+										<!--	</f:toolbar>-->
+										<f:formElements>
+											<!--<f:FormElement label="{i18n>fichero}" class="mSuperior">-->
+											<f:FormElement label="{i18n>fichero}">
+												<!--<l:HorizontalLayout class="sapUiContentPadding">-->
+												<u:FileUploader id="seleccionaFichero" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete" width="100%"/>
+												<!--</l:HorizontalLayout>-->
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</VBox>
+					</content>
+					<footer>
+						
+						<OverflowToolbar id="otbFooter">
+							<ToolbarSpacer/>
+							<Button type="Accept" text="{i18n>enviar}" press="onUpload" id="btnSubir">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+							<Button type="Reject" text="{i18n>rechazar}" press="rechazarCambios">
+								<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+							</Button>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -1,0 +1,24 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMF_PRUEBA_SRV_01" xml:lang="es">
+			<EntityType xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Cliente" sap:content-version="1">
+				<Key><PropertyRef Name="stcd1"/></Key><Property Name="kunnr" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="name1" Type="Edm.String" Nullable="false" MaxLength="35"/><Property Name="name2" Type="Edm.String" Nullable="false" MaxLength="35"/><Property Name="stcd1" Type="Edm.String" Nullable="false" MaxLength="16"/><Property Name="dear1" Type="Edm.Boolean" Nullable="false"/><Property Name="file" Type="Edm.Binary" Nullable="false"/><NavigationProperty Name="get_documento" Relationship="ZMF_PRUEBA_SRV_01.get_documento" FromRole="FromRole_get_documento"
+					ToRole="ToRole_get_documento"/></EntityType>
+			<EntityType xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="Documento" sap:content-version="1">
+				<Key><PropertyRef Name="stcd1"/></Key><Property Name="stcd1" Type="Edm.String" Nullable="false" MaxLength="16"/><Property Name="fichero" Type="Edm.Binary" Nullable="false"/></EntityType>
+			<EntityType xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="DocumentoFirmado" sap:content-version="1">
+				<Key><PropertyRef Name="stcd1"/></Key><Property Name="stcd1" Type="Edm.String" Nullable="false"/><Property Name="file" Type="Edm.Binary" Nullable="false"/></EntityType>
+			<Association xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="get_documento" sap:content-version="1"><End Type="ZMF_PRUEBA_SRV_01.Cliente" Multiplicity="1" Role="FromRole_get_documento"/><End Type="ZMF_PRUEBA_SRV_01.Documento" Multiplicity="0..1" Role="ToRole_get_documento"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_get_documento"><PropertyRef Name="stcd1"/></Principal>
+					<Dependent Role="ToRole_get_documento"><PropertyRef Name="stcd1"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZMF_PRUEBA_SRV_01" m:IsDefaultEntityContainer="true"><EntitySet xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="DocumentoSet" EntityType="ZMF_PRUEBA_SRV_01.Documento"
+				sap:content-version="1"/><EntitySet xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="DocumentoFirmadoSet" EntityType="ZMF_PRUEBA_SRV_01.DocumentoFirmado"
+				sap:content-version="1"/><EntitySet xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="ClienteSet" EntityType="ZMF_PRUEBA_SRV_01.Cliente" sap:content-version="1"/>
+				<AssociationSet xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="get_documentoSet" Association="ZMF_PRUEBA_SRV_01.get_documento"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ClienteSet" Role="FromRole_get_documento"/><End EntitySet="DocumentoSet" Role="ToRole_get_documento"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMF_PRUEBA_SRV_01/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMF_PRUEBA_SRV_01/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
